@@ -7,5 +7,5 @@ setup(name='netezza_sqlalchemy',
       author='Christian Minich',
       author_email='cnolanminich@gmail.com',
       license='MIT',
-      packages=['netezza_sqlalchemy'],
+      packages=['netezza_dialect'],
       zip_safe=False)
