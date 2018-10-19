@@ -167,7 +167,7 @@ class NetezzaODBC(PyODBCConnector, PGDialect):
     '''
 
     name = 'netezza'
-    encoding = 'latin9'
+    encoding = 'utf8'
     default_paramstyle = 'qmark'
     returns_unicode_strings = False
     supports_native_enum = False
@@ -183,11 +183,11 @@ class NetezzaODBC(PyODBCConnector, PGDialect):
     def initialize(self, connection):
         super(NetezzaODBC, self).initialize(connection)
         # PyODBC connector tries to set these to true...
-        self.supports_unicode_statements = False
-        self.supports_unicode_binds = False
+        self.supports_unicode_statements = True
+        self.supports_unicode_binds = True
         self.returns_unicode_strings = True
         self.convert_unicode = 'ignore'
-        self.encoding = 'latin9'
+        self.encoding = 'utf8'
         self.ischema_names.update(ischema_names)
 
     def has_table(self, connection, tablename, schema=None):
